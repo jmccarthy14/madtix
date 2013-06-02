@@ -21,7 +21,7 @@
     },
      {"pk": 3, "model": "api.ticket", "fields":
         {
-            "event": "Martini's On Ice",
+            "event": "Martinis On Ice",
             "venue": "The Ritz",
             "quantity" : 1,
             "description" : "Looking for someone to go with me to this. It'll be classy.",
