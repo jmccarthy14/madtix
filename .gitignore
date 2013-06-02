@@ -1,9 +1,7 @@
-/api/__init__.pyc
-/api/models.pyc
-/api/urls.pyc
-/api/views.pyc
-/ext/.DS_Store
-/tix/__init__.pyc
-/tix/settings.pyc
-/tix/urls.pyc
-/tix/wsgi.pyc
+*.swp
+*.pyc
+.DS_Store
+*.tch
+*.class
+*.log
+.idea
