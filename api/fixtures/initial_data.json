@@ -1,0 +1,32 @@
+[
+    {"pk": 1, "model": "api.ticket", "fields":
+        {
+            "event": "Outside Lands 2013 VIP",
+            "venue": "Golden Gate Park",
+            "quantity" : 2,
+            "description" : "Two tickets to outside lands VIP General Admission. Can meet wherever you'd like",
+            "seller_email_address" : "wymetyme@gmail.com",
+            "seller_phone" : "817-614-8394"
+        }
+    },
+     {"pk": 2, "model": "api.ticket", "fields":
+        {
+            "event": "SF Giants vs Rockies",
+            "venue": "AT&T Park",
+            "quantity" : 5,
+            "description" : "Club level seats (Sec 210, Row 12) for tonights game",
+            "seller_email_address" : "wymetyme@gmail.com",
+            "seller_phone" : "817-614-8394"
+        }
+    },
+     {"pk": 3, "model": "api.ticket", "fields":
+        {
+            "event": "Martini's On Ice",
+            "venue": "The Ritz",
+            "quantity" : 1,
+            "description" : "Looking for someone to go with me to this. It'll be classy.",
+            "seller_email_address" : "joe@weird.com",
+            "seller_phone" : "555-555-5555"
+        }
+    }
+]

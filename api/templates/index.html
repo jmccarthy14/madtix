@@ -1,1 +1,7 @@
 api test
+<form method="post" action="/api/tickets">
+    {% csrf_token %}
+    Title: <input type="text" name="title" /> <br/>
+    Description: <input type="text" name="description" /> <br/>
+    <input type="submit" />
+</form>
