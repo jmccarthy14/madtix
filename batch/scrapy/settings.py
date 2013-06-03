@@ -3,17 +3,17 @@
 # For simplicity, this file contains only the most important settings by
 # default. All the other settings are documented here:
 #
-#     http://doc.scraper.org/topics/settings.html
+#     http://doc.scrapy.org/topics/settings.html
 #
 import os
 
 BOT_NAME = 'scrapy'
 
-SPIDER_MODULES = ['scraper.spiders']
-NEWSPIDER_MODULE = 'scraper.spiders'
+SPIDER_MODULES = ['batch.scrapy.spiders']
+NEWSPIDER_MODULE = 'batch.scrapy.spiders'
 
 ITEM_PIPELINES = [
-    "scraper.pipelines.CLItemPipeline"
+    "batch.scrapy.pipelines.CLItemPipeline"
 ]
 
 
@@ -28,10 +28,10 @@ def setup_django_env(path):
     setup_environ(project)
 
 current_dir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-# setup_django_env(os.path.join(current_dir, '../tix'))
-# setup_django_env("/Users/Josh/projects/tix-web/tix")
+print current_dir
+setup_django_env(os.path.join(current_dir, '../base'))
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'scraper (+http://www.yourdomain.com)'
+#USER_AGENT = 'scrapy (+http://www.yourdomain.com)'
 
 

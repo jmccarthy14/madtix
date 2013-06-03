@@ -6,8 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'tix.views.home', name='home'),
-    # url(r'^tix/', include('tix.foo.urls')),
+    # url(r'^$', 'base.views.home', name='home'),
+    # url(r'^base/', include('base.foo.urls')),
 
 
     url(r'^api/', include('api.urls')),

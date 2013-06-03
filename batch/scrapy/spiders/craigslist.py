@@ -1,9 +1,9 @@
-import re, unicodedata
+import re
 from scrapy.http import Request
 from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
 from urlparse import urlparse, parse_qs
-from scraper.items import CLListingItem
+from batch.scrapy.items import CLListingItem
 
 
 class CLListingsSpider(BaseSpider):
@@ -31,7 +31,7 @@ class CLListingsSpider(BaseSpider):
     def parse_listing(self, response):
         hxs = HtmlXPathSelector(response)
         title = hxs.select("//html/head/title/text()")[0].extract().encode("ascii", "replace").strip(" ")
-        description = hxs.select("//section[@id='postingbody']/text()")[0].extract().strip()
+        description = hxs.select("//section[@id='postingbody']/text()")[0].extract().strip(" ")
         link = response.url
 
         # get phone if available
@@ -62,7 +62,7 @@ class CLListingsSpider(BaseSpider):
     def get_listing_url(self, listing_row):
         """
         Returns the listing url given the XPathSelector for a row on a craigstlist search page
-        @type listing_row: scraper.selector.XPathSelector
+        @type listing_row: scrapy.selector.XPathSelector
         @params listing_row: XPathSelector for a listing on a craigslist search page
         @return: string
         """
@@ -75,7 +75,7 @@ class CLListingsSpider(BaseSpider):
     def get_listing_location(self, listing):
         """
         Try to determine the location of the listing
-        @type listing: scraper.selector.XPathSelector
+        @type listing: scrapy.selector.XPathSelector
         @param listing: XPathSelector for HTML of a Craigslist listing
         """
 
