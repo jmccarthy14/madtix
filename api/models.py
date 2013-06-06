@@ -2,22 +2,25 @@ from django.db import models
 
 
 class Ticket(models.Model):
-    event = models.CharField(max_length=30)
-    venue = models.CharField(max_length=30)
-    quantity = models.IntegerField()
-    description = models.CharField(max_length=1024)
-    seller_email_address = models.EmailField()
-    seller_phone = models.CharField(max_length=20)
-    external_src = models.CharField(max_length=100)
-    external_listing_url = models.URLField()
-
+    title = models.CharField(max_length=300)
+    description = models.CharField(max_length=1000)
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+    pickup_location = models.CharField(max_length=255, null=True)
+    seller_email_address = models.EmailField(null=True)
+    seller_phone = models.CharField(max_length=20, null=True)
+    external_src = models.CharField(max_length=100, null=True)
+    external_listing_url = models.URLField(null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
 class CLListing(models.Model):
     title = models.CharField(max_length=1024)
     description = models.CharField(max_length=1024)
-    link = models.CharField(max_length=1024)
-    price = models.CharField(max_length=1024, null=True)
+    link = models.CharField(max_length=255, unique=True)
+    price = models.DecimalField(decimal_places=2, max_digits=10, null=True)
     location = models.CharField(max_length=1024, null=True)
     email = models.CharField(max_length=1024, null=True)
     phone = models.CharField(max_length=1024, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 

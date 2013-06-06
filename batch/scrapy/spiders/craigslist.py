@@ -23,7 +23,7 @@ class CLListingsSpider(BaseSpider):
             request = Request(listing_url, callback=self.parse_listing)
 
             if len(price_node) > 0:
-                price = price_node[0].extract()
+                price = price_node[0].extract().replace("$", "")
                 request.meta['price'] = price
 
             yield request
@@ -31,7 +31,7 @@ class CLListingsSpider(BaseSpider):
     def parse_listing(self, response):
         hxs = HtmlXPathSelector(response)
         title = hxs.select("//html/head/title/text()")[0].extract().encode("ascii", "replace").strip(" ")
-        description = hxs.select("//section[@id='postingbody']/text()")[0].extract().strip(" ")
+        description = hxs.select("//section[@id='postingbody']/text()")[0].extract().strip(" ").replace("\n", "").replace("\t", "")
         link = response.url
 
         # get phone if available
@@ -44,7 +44,7 @@ class CLListingsSpider(BaseSpider):
         # get e-mail if available
         email_node = hxs.select("//section[@class='dateReplyBar']/a[1]/text()")
         if len(email_node) > 0:
-            email = email_node.extract()
+            email = email_node.extract()[0].encode("ascii", "replace")
         else:
             email = None
 
